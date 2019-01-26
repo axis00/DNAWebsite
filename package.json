@@ -1,0 +1,24 @@
+{
+  "name": "dnawebsite",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --entry ./src/js/main.js --output-filename ./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axis00/DNAWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axis00/DNAWebsite/issues"
+  },
+  "homepage": "https://github.com/axis00/DNAWebsite#readme",
+  "dependencies": {
+    "three": "^0.100.0"
+  }
+}
