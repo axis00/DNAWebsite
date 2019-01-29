@@ -1,20 +1,24 @@
 var THREE = require('three');
 
+function randomFloat(min,max){
+    return Math.random() * (min - max) + max;
+}
+
 module.exports = {
 
-    Strand : function(){
-        this.geometry = generateDoubleHelix(-10,10,15,7.5);
+    Strand : function(dither){
+        this.geometry = generateDoubleHelix(-10,10,15,10);
         this.material = new THREE.MeshBasicMaterial({color : 'red', wireframe : true});
-        this.mesh = new THREE.Mesh(this.geometry,this.material)
+        this.mesh = new THREE.Mesh(this.geometry,this.material);
 
         function generateHelix(start, end, radius, pitch){
-            var resultGeometry = new THREE.Geometry()
-            for(i = start; i < end; i+=.05){
-                var x = radius * Math.cos(i);
-                var y = pitch * i;
-                var z = radius * Math.sin(i);
+            var resultGeometry = new THREE.Geometry();
+            for(i = start; i < end; i+=.03){
+                var x = radius * Math.cos(i) + randomFloat(-dither, dither);
+                var y = pitch * i + randomFloat(-dither, dither);
+                var z = radius * Math.sin(i) + randomFloat(-dither, dither);
 
-                var geo = new THREE.SphereGeometry(.5,6,5);
+                var geo = new THREE.SphereGeometry(1,6,5);
                 geo.translate(x,y,z);
 
                 resultGeometry.merge(geo);
@@ -31,6 +35,7 @@ module.exports = {
             resultGeometry.merge(generateHelix(start,end,radius,pitch));
             return resultGeometry;
         }
+
 
     }
 
