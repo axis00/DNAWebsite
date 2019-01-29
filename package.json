@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/axis00/DNAWebsite#readme",
   "dependencies": {
-    "three": "^0.100.0"
+    "three": "^0.100.0",
+    "three-orbit-controls": "^82.1.0"
   }
 }
