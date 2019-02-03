@@ -4,7 +4,7 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 OrbitControls === undefined;
 
 var mainScene = new THREE.Scene();
-var frustumDenom = 40;
+var frustumDenom = 5;
 var mainCamera = new THREE.OrthographicCamera(
     window.innerWidth / -frustumDenom, window.innerWidth / frustumDenom, 
     window.innerHeight / frustumDenom, window.innerHeight / -frustumDenom, 
